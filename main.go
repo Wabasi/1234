@@ -22,11 +22,12 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
         fmt.Println("key:", k)
         fmt.Println("val:", strings.Join(v, ""))
     }
-    fmt.Fprintf(w, "Noah's hello world") // send data to client side
+    fmt.Fprintf(w, "Let's get some bread") // send data to client side
 }
 
 func main() {
-    http.HandleFunc("/", sayhelloName) // set router
+    http.HandleFunc("/hi", sayhelloName) // set router
+    fmt.Println("Server started. :)")
     err := http.ListenAndServe(":80", nil) // set listen port
     if err != nil {
         log.Fatal("ListenAndServe: ", err)
