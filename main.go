@@ -8,7 +8,7 @@ import (
 )
 
 /**
- * @api {get} / Request User information
+ * @api {get} /hi Request User information
  * @apiName Get
  *
  */
@@ -22,12 +22,24 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
         fmt.Println("key:", k)
         fmt.Println("val:", strings.Join(v, ""))
     }
-    fmt.Fprintf(w, "Let's get some bread") // send data to client side
+    fmt.Fprintf(w, "Yeet some Wheat") // send data to client side
+
+}
+/**
+ * @api {get} /swag Request User information
+ * @apiName Get
+ *
+ */
+func sayswag(w http.ResponseWriter, r *http.Request) {
+
+    fmt.Fprintf(w, "What's good family")
+
 }
 
 func main() {
-    http.HandleFunc("/hi", sayhelloName) // set router
-    fmt.Println("Server started. :)")
+    http.HandleFunc("/hi", sayhelloName,)
+    http.HandleFunc("/swag", sayswag,)// set router
+    fmt.Println("Let's get some bread")
     err := http.ListenAndServe(":80", nil) // set listen port
     if err != nil {
         log.Fatal("ListenAndServe: ", err)
